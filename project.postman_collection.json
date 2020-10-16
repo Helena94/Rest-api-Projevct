@@ -1,0 +1,799 @@
+{
+	"info": {
+		"_postman_id": "5a3b1631-18bd-4c62-90f5-1e77ec9e85c3",
+		"name": "project",
+		"description": "Tests are made for admin and user. I chose random requests from user,farm,custome-api. It is also shown security capabilities.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get:http://localhost:8081/users/2",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin99",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Admin99",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post:http://localhost:8081/users",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin9999",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Admin99",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"MaxPain2\",\r\n    \"password\": \"maxpain2\",\r\n    \"email\": \"maxpain2@gmail.com\",\r\n    \"isadmin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http//localhost:8081/farms",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin99",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Admin99",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/farms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"farms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put:http://localhost:8081/users/1/farms/3",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin99",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Admin99",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"acres\":300,\r\n\"typeodculture\":\"strawberries\",\r\n\"acreperdollar\":13,\r\n\"name\":\"Strawberry land\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/users/1/farms/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"farms",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/1/customers/3",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin99",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Admin99",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1/customers/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"customers",
+								"3"
+							]
+						},
+						"description": "Wont show customer since he doesnt exist under that user id"
+					},
+					"response": []
+				},
+				{
+					"name": "delete:http://localhost:8081/user/1/customers/16",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin99",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Admin99",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/2/customers/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"2",
+								"customers",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Has access to all requests.Admin is Admin99 and password is admin99.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "30e2c70d-7667-45d9-a762-70778ee68a0a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b1c32854-e4b2-4c09-b259-f99d406199be",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get:http://localhost:8081/users/1",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "Hers id"
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/2",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"2"
+							]
+						},
+						"description": "Not her id"
+					},
+					"response": []
+				},
+				{
+					"name": "post:http://localhost:8081/users",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"MaxPain3\",\r\n    \"password\": \"maxpain3\",\r\n    \"email\": \"maxpain3@gmail.com\",\r\n    \"isadmin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http//localhost:8081/farms",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/farms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"farms"
+							]
+						},
+						"description": "Cant access this request.Only admin"
+					},
+					"response": []
+				},
+				{
+					"name": "put:http://localhost:8081/users/1/farms/3",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"acres\":250,\r\n\"typeofculture\":\"berries\",\r\n\"acreperdollar\":5,\r\n\"name\":\"Berry land\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/users/1/farms/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"farms",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put;http://localhost:8081/users/3/farms/4",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"acres\":252,\r\n\"typeofculture\":\"berries2\",\r\n\"acreperdollar\":5,\r\n\"name\":\"Berry land2\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/users/3/farms/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"3",
+								"farms",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/1/farms",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1/farms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"farms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/2/farms",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/2/farms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"2",
+								"farms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/1/customers/4",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1/customers/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"customers",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete:http://localhost:8081/users/2/customers/15",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/2/customers/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"2",
+								"customers",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete:http://localhost:8081/users/2/customers/14",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1/customers/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"customers",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/1/accounts",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/1/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"1",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get:http://localhost:8081/users/2/accounts",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "biki94",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Biki94",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users/2/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"2",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Using user Biki94 with password biki94. It is shown that that user can only access her urls with hers id 1. It is shown how some request work.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c37dba72-87d7-4f90-8940-d0f6aa9e43ff",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6665097d-c559-4150-b0da-2f454e4c389e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
